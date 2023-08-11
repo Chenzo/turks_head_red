@@ -1,0 +1,158 @@
+
+
+<CFHTTP METHOD="Get" URL="http://www.gamesniffer.com/cgi-bin/style1.cgi?100447" RESOLVEURL="Yes">
+<CFOUTPUT>
+<cfset thelength = #len(CFHTTP.FileContent)#>
+<cfset chop = #thelength# - 501>
+<cfset thenewstring = #Mid(CFHTTP.FileContent, 501, chop)#>
+<cfset thelength = #len(thenewstring)#>
+<cfset chop = #thelength# - 976>
+<cfset thenewstring = #Left(thenewstring, chop)#>
+
+
+<!--- This is getting the map --->
+<cfset where = Find('Current Map:', thenewstring) + 140>
+<cfset thelength = #len(thenewstring)#>
+<cfset chop = #thelength# - where>
+<cfset themap = #Right(thenewstring, chop)#>
+<cfset where = Find('</font>', themap) - 1>
+<cfset themap = #Left(themap, where)#>
+<!--- This is getting the map --->
+
+themap = Revolution
+
+
+<!--- This is getting the currentplayers --->
+<cfset where = Find('Current Players:', thenewstring) + 144>
+<cfset thelength = #len(thenewstring)#>
+<cfset chop = #thelength# - where>
+<cfset currentplayers = #Right(thenewstring, chop)#>
+<cfset where = Find('</font>', currentplayers) - 1>
+<cfset currentplayers = #Left(currentplayers, where)#>
+<!--- This is getting the currentplayers --->
+
+currentplayers = 11
+
+
+<!--- This is getting the maxplayers --->
+<cfset where = Find('Maximum Players:', thenewstring) + 144>
+<cfset thelength = #len(thenewstring)#>
+<cfset chop = #thelength# - where>
+<cfset maxplayers = #Right(thenewstring, chop)#>
+<cfset where = Find('</font>', maxplayers)-1>
+<cfset maxplayers = #Left(maxplayers, where)#>
+<!--- This is getting the maxplayers --->
+
+maxplayers = 16
+
+
+
+
+<cfset alltheplayers = "">
+<CFSET PlayerNumber=1> 
+<cfset firsttime = 1>
+<cfset thenewstring = "#thenewstring#123123">
+<!--- This is getting the players and stats --->
+
+
+<CFSET StillLoop = 1>
+
+<CFLOOP CONDITION="StillLoop EQ 1"> 
+
+
+<cfif firsttime eq 1>
+
+<cfset where = Find('Ping:', thenewstring) + 152>
+<cfset thelength = #len(thenewstring)#>
+<cfset chop = #thelength# - where>
+<cfset playerstring = #Right(thenewstring, chop)#>
+<cfset continue = #playerstring#>
+
+<cfset firsttime = 0>
+<cfelse>
+
+<cfset where = Find('ffffff', thenewstring) + 8>
+<cfset thelength = #len(thenewstring)#>
+<cfset chop = #thelength# - where>
+<cfset playerstring = #Right(thenewstring, chop)#>
+<cfset continue = #playerstring#>
+
+</cfif>
+
+
+<cfset where = Find('</font>', playerstring) - 1>
+<cfset playerstring = #Left(playerstring, where)#>
+
+<!-- #playerstring# -->
+
+<cfif #playerstring# is not "- Players List Empty -">
+
+
+<cfset frags = #continue#>
+<cfset findthis = '"ffffff"> '>
+<cfset where = Find(#findthis#, frags)>
+<cfset thelength = #len(frags)# - 9>
+<cfset chop = #thelength# - where>
+<cfset frags = #Right(frags, chop)#>
+<cfset continue = #frags#>
+<cfset where = Find('</font>', frags)-1>
+<cfset frags = #Left(frags, where)#>
+
+<cfset team = #continue#>
+<cfset findthis = '"ffffff"> '>
+<cfset where = Find(#findthis#, team)>
+<cfset thelength = #len(team)# - 9>
+<cfset chop = #thelength# - where>
+<cfset team = #Right(team, chop)#>
+<cfset continue = #team#>
+<cfset where = Find('</font>', team)-1>
+<cfset team = #Left(team, where)#>
+
+<cfif team is "Team Blue">
+<cfset team = 1>
+<cfelseif team is "Team Red">
+<cfset team = 2>
+<cfelse>
+<cfset team = 3>
+</cfif>
+
+
+
+<cfset ping = #continue#>
+<cfset findthis = '"ffffff"> '>
+<cfset where = Find(#findthis#, ping)>
+<cfset thelength = #len(ping)# - 10>
+<cfset chop = #thelength# - where>
+<cfset ping = #Right(ping, chop)#>
+<cfset continue = #ping#>
+<cfset where = Find('</font>', ping) - 1>
+<cfset ping = #Left(ping, where)#>
+
+
+<cfset alltheplayers = "#alltheplayers#&ping#PlayerNumber#=#ping#&team#PlayerNumber#=#team#&frags#PlayerNumber#=#frags#&playerstring#PlayerNumber#=#URLEncodedFormat(playerstring)#">
+
+<CFSET PlayerNumber = PlayerNumber + 1> 
+<cfset checkitall = Find('ffffff', continue)>
+<cfif checkitall eq 0>
+<cfset StillLoop = 3>
+<cfelse>
+<cfset StillLoop = 1>
+<cfset thenewstring = #continue#>
+</cfif>
+
+<!-- no one is online -->
+
+<cfelse>
+<cfset StillLoop = 3>
+<cfset alltheplayers = "&noone=yes">
+</cfif>
+
+</CFLOOP>
+
+<!---  This is getting the players and stats --->
+
+
+<cfcontent type="text/html" reset="Yes">
+loading=0#alltheplayers#&themap=#URLEncodedFormat(TRIM(themap))#&maxplayers=#TRIM(maxplayers)#&onlineplayers=#TRIM(currentplayers)#&finished=5&theend=0
+<cfcontent type="text/html" reset="No">
+</CFOUTPUT>

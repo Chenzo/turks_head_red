@@ -1,0 +1,84 @@
+members.swf Movie Report
+-------------------------
+Frame #    Frame Bytes    Total Bytes    Scene
+-------    -----------    -----------    ----------------
+      1            102            102    TheWholeThing (AS 2.0 Classes Export Frame)
+      2             16            118    
+      3             65            183    
+      4          94047          94230    
+
+Scene                        Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+TheWholeThing                         92            60                   589
+
+Symbol                       Shape Bytes    Text Bytes    ActionScript Bytes
+-------------------------    -----------    ----------    ------------------
+Coffee Drops                         281             0                     0
+TheStain                             212             0                     0
+Coffee                                 0             0                     0
+Symbol 46                              0             0                     0
+MembersBackground                     53             0                     0
+Symbol 38                             37             0                     0
+Symbol 37                              0             0                     0
+Symbol 36                             42             0                     0
+CloseMembers Button                    0             0                     0
+Picture Space                         40             0                     0
+Picture Movie                          0            53                     0
+Star                                 553             0                     0
+RankMovie                           7523             0                    22
+CloseFileButton                      103           102                     0
+TagButton                            169             0                     0
+Symbol 27                              0             0                     0
+PaperClip                            353             0                     0
+FolderGraphic                        114             0                     0
+FOlder                               193           676                   879
+DogShaodw                             84             0                     0
+OneDogTag                              0             0                     0
+DogTag                               351             0                   347
+OneName                                0           183                     0
+OneRank                                0           159                     0
+OneSerial                              0           168                     0
+Symbol 34                           1099             0                     0
+ThreeLinesOfDots                       0             0                     0
+A Line Of Dots                         0             0                     0
+A Dot                                 76             0                     0
+Symbol 46 2                           57             0                     0
+CloseWindow BUtton                   230             0                     0
+
+Font Name                 Bytes        Characters    
+----------------------    ---------    --------------
+ITC Kabel Medium                921     ABCEFHILMNORST
+Helvetica 35 Thin              1421     #:BMNRabeikmnor
+AmericanTypewriter Medium     17828     !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+Stencil                        1335     ADEGILMNO
+HelveticaRounded Bold         11424     !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+
+ActionScript Bytes    Location
+------------------    --------
+                68    TheWholeThing:Layer 28:1
+                57    TheWholeThing:Layer 28:3
+               446    TheWholeThing:Layer 28:4
+               347    DogTag:Layer 7:1:No instance name assigned(TagButton)
+                 2    FOlder:Layer 7:1
+               867    FOlder:Layer 7:2
+                10    FOlder:Layer 8:2:No instance name assigned(CloseFileButton)
+                 2    RankMovie:Layer 4:1
+                 2    RankMovie:Layer 4:2
+                 2    RankMovie:Layer 4:3
+                 2    RankMovie:Layer 4:4
+                 2    RankMovie:Layer 4:5
+                 2    RankMovie:Layer 4:6
+                 2    RankMovie:Layer 4:7
+                 2    RankMovie:Layer 4:8
+                 2    RankMovie:Layer 4:9
+                 2    RankMovie:Layer 4:10
+                 2    RankMovie:Layer 4:11
+                18    TheWholeThing:Layer 40:4:No instance name assigned(CloseWindow BUtton)
+
+Bitmap                     Compressed    Compression
+-----------------------    ----------  --------  -----------
+membersjpeg.jpg                43516      584936   Imported JPEG=102
+
+
+
+

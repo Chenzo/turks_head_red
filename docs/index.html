@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>the Turks Head Clan</title>
+<script>
+<!--
+// set the popup window width and height
+
+  var ah = screen.availHeight;
+  var aw = screen.availWidth;
+
+var windowW=aw // wide
+var windowH=ah // high
+
+// set the screen position where the popup should appear
+
+var windowX = 0 // from left
+var windowY = 0 // from top
+
+// set the url of the page to show in the popup
+
+  if (aw == 1024){
+    var urlPop = "thcbigframeset.html"
+  }else if (aw == 1280) {
+    var urlPop = "thcbigframeset1280.html"
+  }else if (aw == 1152) {
+    var urlPop = "thcbigframeset1152.html"
+  }else{
+    var urlPop = "toosmall.html"
+  }
+
+
+// set the title of the page
+
+var title =  "THC"
+
+// set this to true if the popup should close
+// upon leaving the launching page; else, false
+
+var autoclose = true
+
+s = "width="+windowW+",height="+windowH;
+var beIE = document.all?true:false
+
+function openFrameless(){
+  if (beIE){
+    NFW = window.open("","popFrameless","fullscreen,"+s)     
+    NFW.blur()
+    window.focus()       
+    NFW.resizeTo(windowW,windowH)
+    NFW.moveTo(windowX,windowY)
+    var frameString=""+
+"<html>"+
+"<head>"+
+"<title>"+title+"</title>"+
+"</head>"+
+"<frameset rows='*,0' framespacing=0 border=0 frameborder=0>"+
+"<frame name='top' src='"+urlPop+"' scrolling=auto>"+
+"<frame name='bottom' src='about:blank' scrolling='no'>"+
+"</frameset>"+
+"</html>"
+    NFW.document.open();
+    NFW.document.write(frameString)
+    NFW.document.close()
+  } else {
+    NFW=window.open(urlPop,"popFrameless","scrollbars,titlebar=no,"+s)
+    NFW.blur()
+    window.focus() 
+    NFW.resizeTo(windowW,windowH)
+    NFW.moveTo(windowX,windowY)
+  }   
+  NFW.focus()   
+  if (autoclose){
+    window.onunload = function(){NFW.close()}
+  }
+}
+
+function MM_popupMsg(msg) { //v1.0
+  alert(msg);
+}
+//to use this add the following to the onload
+//MM_popupMsg(aw + ' by ' + ah);
+
+//-->
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+
+<script type="text/javascript">	
+	
+	function openThisWindow(theFile, nn) {
+			if (nn == '1') {
+				window.open(theFile, 'thc_redsite', 'width=1024,height=768,status=0,toolbar=0,menubar=0,location=0');
+			} else if (nn == '2') {
+				alert('ding');
+				window.open(theFile, 'thc_redsite', 'width=1152,height=836,status=0,toolbar=0,menubar=0,location=0');
+			} else {
+				window.open(theFile, 'thc_redsite', 'width=1280,height=932,status=0,toolbar=0,menubar=0,location=0');
+			}
+	}
+	
+</script>
+
+<style>
+
+.frameLinks {
+	font: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 14px;
+	display: block;
+	margin-right: 15px;
+}
+
+.fFloat {
+	float: left;	
+}
+
+
+#theLinks {
+	display:block;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+	text-align: center;
+	background-color: #033;
+	height: 60px;
+	width: 350px;
+}
+
+div {
+	text-align: center;	
+}
+</style>
+</head>
+<body bgcolor="#660A00" text="#FFFFFF" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+<div align="center"> 
+<!--  <p><br>
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+ codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+ width=450 height=200>
+      <param name=movie value="flashtestmovie.swf">
+      <param name=quality value=high>
+      <param name=bgcolor value=#660A00>
+      <embed src="flashtestmovie.swf" quality=high bgcolor=#660A00  width=450 height=200 type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">
+      </embed> 
+    </object></p>-->
+  <!--<p><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b><font color="#FF9900">OPENING 
+    THC DESKTOP</font></b></font></p>
+  <p><b><font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF9900">if 
+    nothing seems to have happened <a href="help.cfm">click here</a>.</font></b></p>-->
+    
+    <p>Launch THC Red Site:</p>
+    <p class="frameLinks"><a href="" onClick="openThisWindow('thcbigframeset.html', '1'); return false;">1024 pixels wide</a> | <a href="" onClick="openThisWindow('thcbigframeset1152.html', '2'); return false;">1152 pixels wide</a> | <a href="" onClick="openThisWindow('thcbigframeset1280.html', '3'); return false;">1280 pixels wide</a></p>
+    <!-- if (aw == 1024){
+    var urlPop = "thcbigframeset.html"
+  }else if (aw == 1280) {
+    var urlPop = "thcbigframeset1280.html"
+  }else if (aw == 1152) {
+    var urlPop = "thcbigframeset1152.html"-->
+    
+  </div>
+</body>
+</html>

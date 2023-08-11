@@ -1,0 +1,1 @@
+TheIP1=123&TheIP2=456&TheIP3=789&TheIP4=000&TheLastBit=5

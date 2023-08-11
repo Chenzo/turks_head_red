@@ -1,0 +1,140 @@
+==============================================================
+Script:     Amazing Frameless Popup Window - Version I
+
+Functions:  In IE4 and later, this script launches a popup
+            window without the Windows frame or titlebar
+            (that is, a "containerless" window).  In other
+            browsers, it launches a standard popup window.
+            Position, width, and height are settable.
+            Automatic closing of the window on leaving the
+            page may also be optionally set.
+
+Browsers:   IE4 and later
+            Degrades fully functionally in other browsers
+
+Author:     etLux
+==============================================================
+
+STEP 1.
+Inserting the <script> in your page
+
+Put the following <script> </script> in the head
+section of your launching page.  
+
+Set the variables as indicated in the script.
+
+<script>
+
+// Amazing Frameless Popup Window - Version I
+// (C) 2000 www.CodeLifter.com
+// Free for all users, but leave in this  header
+
+// set the popup window width and height
+
+  var ah = screen.availHeight;
+  var aw = screen.availWidth - 10;
+
+var windowW=aw // wide
+var windowH=ah // high
+
+// set the screen position where the popup should appear
+
+var windowX = 0 // from left
+var windowY = 0 // from top
+
+// set the url of the page to show in the popup
+
+var urlPop = "index.html"
+
+// set the title of the page
+
+var title =  "This Is A Frameless Popup Window"
+
+// set this to true if the popup should close
+// upon leaving the launching page; else, false
+
+var autoclose = true
+
+// ============================
+// do not edit below this line
+// ============================
+
+s = "width="+windowW+",height="+windowH;
+var beIE = document.all?true:false
+
+function openFrameless(){
+  if (beIE){
+    NFW = window.open("","popFrameless","fullscreen,"+s)     
+    NFW.blur()
+    window.focus()       
+    NFW.resizeTo(windowW,windowH)
+    NFW.moveTo(windowX,windowY)
+    var frameString=""+
+"<html>"+
+"<head>"+
+"<title>"+title+"</title>"+
+"</head>"+
+"<frameset rows='*,0' framespacing=0 border=0 frameborder=0>"+
+"<frame name='top' src='"+urlPop+"' scrolling=auto>"+
+"<frame name='bottom' src='about:blank' scrolling='no'>"+
+"</frameset>"+
+"</html>"
+    NFW.document.open();
+    NFW.document.write(frameString)
+    NFW.document.close()
+  } else {
+    NFW=window.open(urlPop,"popFrameless","scrollbars,"+s)
+    NFW.blur()
+    window.focus() 
+    NFW.resizeTo(windowW,windowH)
+    NFW.moveTo(windowX,windowY)
+  }   
+  NFW.focus()   
+  if (autoclose){
+    window.onunload = function(){NFW.close()}
+  }
+}
+
+</script>
+
+==============================================================
+
+STEP 2.
+Triggering the popup window
+
+Call the openFrameless function from a link, like this:
+
+<a href="javascript:openFrameless()">click here</a>
+
+==============================================================
+
+STEP 3.
+Conditioning the page that goes in the popup window
+
+Add the following call to the <body> tag of the page that
+will open in the popup *if* your popup does not come to the
+front after it loads.  This is occasionally needed in early
+versions of IE4, and with certain types of page content that
+manipulate focus. If in doubt, put it in -- it can't hurt.
+
+<body onload="top.window.focus()">
+
+==============================================================
+
+ADDENDUM 2/22/2001
+Making the Frameless Popup Center on the Screen Automatically
+
+We've had numerous requests for this, and a minor modification
+of the script can do it.  Here's how...
+
+Comment out the two lines as shown, and add the two shown below
+them.
+
+// set the screen position where the popup should appear
+
+//var windowX = 260 // from left
+//var windowY = 100 // from top
+var windowX = (screen.width/2)-(windowW/2);
+var windowY = (screen.height/2)-(windowH/2);
+
+==============================================================

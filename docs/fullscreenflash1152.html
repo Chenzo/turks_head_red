@@ -1,0 +1,89 @@
+<HTML>
+<HEAD>
+<TITLE>www/fullscreenflash</TITLE>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+<script language="JavaScript">
+<!--
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+
+
+<script>
+
+// set the popup window width and height
+
+  var ah = screen.availHeight;
+  var aw = screen.availWidth;
+
+var windowW=aw // wide
+var windowH=ah // high
+
+// set the screen position where the popup should appear
+
+var windowX = 0 // from left
+var windowY = 0 // from top
+
+// set the url of the page to show in the popup
+
+var urlPop = "http://www.turksheadclan.com/members/membersframeset.html"
+
+// set the title of the page
+
+var title =  "THC"
+
+// set this to true if the popup should close
+// upon leaving the launching page; else, false
+
+var autoclose = true
+
+s = "width="+windowW+",height="+windowH;
+var beIE = document.all?true:false
+
+function aopenFrameless(){
+  if (beIE){
+    ANFW = window.open("","popFramelessa","fullscreen,"+s)     
+    ANFW.blur()
+    window.focus()       
+    ANFW.resizeTo(windowW,windowH)
+    ANFW.moveTo(windowX,windowY)
+    var frameString=""+
+"<html>"+
+"<head>"+
+"<title>"+title+"</title>"+
+"</head>"+
+"<frameset rows='*,0' framespacing=0 border=0 frameborder=0>"+
+"<frame name='top' src='"+urlPop+"' scrolling=auto>"+
+"<frame name='bottom' src='about:blank' scrolling='no'>"+
+"</frameset>"+
+"</html>"
+    ANFW.document.open();
+    ANFW.document.write(frameString)
+    ANFW.document.close()
+  } else {
+    ANFW=window.open(urlPop,"popFrameless","scrollbars,"+s)
+    ANFW.blur()
+    window.focus() 
+    ANFW.resizeTo(windowW,windowH)
+    ANFW.moveTo(windowX,windowY)
+  }   
+  NFW.focus()   
+  if (autoclose){
+    window.onunload = function(){ANFW.close()}
+  }
+}
+
+</script>
+
+
+</HEAD>
+<BODY bgcolor="#660A00" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+ codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+ WIDTH=1152 HEIGHT=836>
+ <PARAM NAME=movie VALUE="fullscreenflash1152.swf"> <PARAM NAME=quality VALUE=high> <PARAM NAME=bgcolor VALUE=#660A00> <EMBED src="fullscreenflash1152.swf" quality=high bgcolor=#660A00  WIDTH=1152 HEIGHT=836 TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></EMBED>
+</OBJECT>
+</BODY>
+</HTML>

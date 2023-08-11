@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+
+netscape = "netscape.html"; // set your browser pages
+explorer = "explorer.html";
+unknown  = "unknown.html";
+
+// Determine the popup window properties
+// options include:  top, left, toolbars, scrollbars,
+// menubar, location, statusbar, and resizable
+
+windowprops = "top=0,left=0,titlebar=no,resizable=no"
++ ",width=" + screen.width + ",height=" + screen.height;
+
+ns = (navigator.appName == 'Netscape');
+ie = (navigator.appName == 'Microsoft Internet Explorer');
+url = (!ns & !ie) ? unknown : ( ns ? netscape : explorer);
+window.open("index.html", "popupPage", windowprops);
+
+
+function redirectPage() {
+var url640x480 = "http://www.yoursite.com/640x480";
+var url800x600 = "http://www.yoursite.com/800x600";
+var url1024x768 = "http://www.yoursite.com/1024x768";
+if ((screen.width == 640) && (screen.height == 480)) 
+window.location.href= url640x480;
+else if ((screen.width == 800) && (screen.height == 600))
+window.location.href= url800x600;
+else if ((screen.width == 1024) && (screen.height == 768))
+window.location.href= url1024x768;
+else window.location.href= url640x480;
+}
+
+function popUp(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=1024,height=768,left = 0,top = 0');");
+}
+
+
+//  End -->
+</script>
+
+
+<!-- Script Size:  1.06 KB -->
+</head>
+
+<body bgcolor="#FFFFFF">
+<a href="#">Test Open Window</a> 
+
+
+<br>
+<center>
+<form>
+<input type=button value="Enter!" onClick="redirectPage()">
+</form>
+</center>
+<br>
+<form>
+<input type=button value="Open the Popup Window" onClick="javascript:popUp('index.html')">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<head>
+
+<title>Clean Window</title>
+
+<script language="JavaScript1.2"><!--
+function doit() {
+  if (document.layers) {
+    netscape.security.PrivilegeManager.enablePrivilege('UniversalBrowserWrite');
+    window.open('http://www.turksheadclan.com','newwin','titlebar=no,width=' + window.screen.width+',height='+window.screen.height+',screenX=0,screenY=0');
+  }
+}
+//--></script>
+</head>
+
+<body>
+<a href="javascript:doit()">Open nocrome</a>
+</body>
+
+</html>

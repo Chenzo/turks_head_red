@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Opening MP3</title>
+<META NAME="robots" CONTENT="NOFOLLOW,NOINDEX">
+<script>
+// (C) 2001 www.CodeLifter.com
+// http://www.codelifter.com
+// Free for all users, but leave in this header
+
+var howLong = 5000;
+
+t = null;
+function closeMe(){
+t = setTimeout("top.window.close()",howLong);
+}
+</script>
+
+<script language="JavaScript">
+<!--
+function MM_goToURL() { //v3.0
+  var i, args=MM_goToURL.arguments; document.MM_returnValue = false;
+  for (i=0; i<(args.length-1); i+=2) eval(args[i]+".location='"+args[i+1]+"'");
+}
+
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+</script>
+</head>
+
+<cfoutput>
+<body onload="closeMe();self.focus();MM_openBrWindow('#TheFileName#.m3u','blankspace','')" bgcolor="FFFFFF" background="background.gif" text="FFFFFF" link="FFFFFF" vlink="FFFFFF" alink="FFFFFF" leftmargin="4" topmargin="4" marginwidth="4" marginheight="4">
+</cfoutput>
+<div align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="1"><b>We're 
+  attempting to open your default mp3 player to allow you to listen to the <i>THC 
+  Radio MP3 Stream</i>. Please wait for buffering. <br>
+  <br>
+  this window will close.<br>
+  <a href="JavaScript:top.window.close()">click here</a> if it doesn't</b></font> 
+</div>
+</body>
+</html>
